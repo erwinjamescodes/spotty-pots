@@ -8,6 +8,8 @@ const cors = require("cors");
 
 dotenv.config();
 
+var port = process.env.PORT || 3000;
+
 app.use(cors());
 
 app.use((req, res, next) => {
@@ -25,6 +27,6 @@ mongoose
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
 
-app.listen(8800, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log("Backend server is running!");
 });
